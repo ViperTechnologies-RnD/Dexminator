@@ -26,19 +26,28 @@ async function listAvailableTokens() {
         <span class="token_list_text">${token.symbol}</span> 
         `
         div.innerHTML = html;
-        div.onclick = selectToken;
+        div.onclick = div.onclick = () => {
+            selectToken(address);
+        };
         parent.appendChild(div);
     }
     //console.log(tokens);
 }
 
-async function selectToken() {
+async function selectToken(address) {
     closeModal();
-    let address = event.target.getAttribute("data-address");
     //console.log(address);
     currentTrade[currentSelectSide] = tokens[address];
     console.log(currentTrade);
+    renderInterface();
 }
+
+function renderInterface() {
+    document.getElementById("from_token_img").src = currentTrade.from.logoURI;
+    document.getElementById("from_token_text").innerHTML = currentTrade.from.symbol;
+
+}
+
 async function login() {
     try {
         currentUser = Moralis.User.current();
