@@ -43,8 +43,15 @@ async function selectToken(address) {
 }
 
 function renderInterface() {
-    document.getElementById("from_token_img").src = currentTrade.from.logoURI;
-    document.getElementById("from_token_text").innerHTML = currentTrade.from.symbol;
+    if (currentTrade.from) {
+        document.getElementById("from_token_img").src = currentTrade.from.logoURI;
+        document.getElementById("from_token_text").innerHTML = currentTrade.from.symbol;
+    }
+    if (currentTrade.to) {
+        document.getElementById("to_token_img").src = currentTrade.to.logoURI;
+        document.getElementById("to_token_text").innerHTML = currentTrade.to.symbol;
+    }
+    
 
 }
 
@@ -72,5 +79,8 @@ initialize();
 document.getElementById("modal_close").onclick = closeModal;
 document.getElementById("from_token_select").onclick = (() => {
     displayModal("from")
+});
+document.getElementById("to_token_select").onclick = (() => {
+    displayModal("to")
 });
 document.getElementById("login_button").onclick = login;
