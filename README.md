@@ -1,2 +1,2 @@
 # Dexminator
-a decentralized Exchange 
+a decentralized Exchange demo dapp
