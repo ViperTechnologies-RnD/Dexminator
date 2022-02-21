@@ -63,7 +63,7 @@ async function login() {
   try {
     currentUser = Moralis.User.current();
     if (!currentUser) {
-      currentUser = await Moralis.authenticate();
+      currentUser = await Moralis.authenticate({signingMessage: "I miss you :'( "});
     }
     document.getElementById("swap_button").disabled = false;
   } catch (error) {
