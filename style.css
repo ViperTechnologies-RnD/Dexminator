@@ -40,3 +40,13 @@
     background-color: #e4e4e4;
     cursor: pointer;
 }
+footer{
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+html, body {
+    background-color: #201928 !important;
+}
